@@ -5,7 +5,7 @@ pipeline {
         nodejs 'nodeJS-16'
     }
     environment {
-        SCANNER_HOME = tool 'SolarQube-Jenkins-server'
+        SCANNER_HOME = tool 'SonarQubeScanner'
         APP_NAME = "redditcaching"
         RELEASE = "1.0.0"
         DOCKER_USER = "mydockerhubidm"
@@ -27,7 +27,7 @@ pipeline {
         }
         stage("Sonarqube Analysis") {
             steps {
-                withSonarQubeEnv('SonarQube-Server') {
+                withSonarQubeEnv('SonarQubeScanner') {
                     sh '''$SCANNER_HOME/bin/SolarQube-Jenkins-server -Dsonar.projectName=RedditCachingSonar \
                     -Dsonar.projectKey=RedditCachingSonar'''
                 }
@@ -36,7 +36,7 @@ pipeline {
         stage("Quality Gate") {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube-Token'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'solar-jenkins-Authentication'
                 }
             }
         }
