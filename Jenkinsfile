@@ -5,7 +5,7 @@ pipeline {
         nodejs 'nodeJS-16'
     }
     environment {
-        SCANNER_HOME = tool 'sonar-scanner'
+        SCANNER_HOME = tool 'SolarQube-Jenkins-server'
         APP_NAME = "redditcaching"
         RELEASE = "1.0.0"
         DOCKER_USER = "mydockerhubidm"
@@ -28,7 +28,7 @@ pipeline {
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=RedditCachingSonar \
+                    sh '''$SCANNER_HOME/bin/SolarQube-Jenkins-server -Dsonar.projectName=RedditCachingSonar \
                     -Dsonar.projectKey=RedditCachingSonar'''
                 }
             }
