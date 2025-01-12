@@ -28,7 +28,7 @@ pipeline {
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SolarQube-Jenkins-server') {
-                    sh '''$SCANNER_HOME/bin/SonarQubeScanner -Dsonar.projectName=RedditCachingSonar \
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=RedditCachingSonar \
                     -Dsonar.projectKey=RedditCachingSonar'''
                 }
             }
