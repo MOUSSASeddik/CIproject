@@ -38,8 +38,8 @@ pipeline {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'solar-jenkins-Authentication'
                 }
-            } */
-        }
+            } 
+        }*/
         stage('Install Dependencies') {
             steps {
                 sh "npm install"
