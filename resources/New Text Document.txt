@@ -1,0 +1,1 @@
+https://gcore.com/learning/jenkins-pipeline-with-sonarqube-and-gitlab/

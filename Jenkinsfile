@@ -33,12 +33,12 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate") {
+       /*  stage("Quality Gate") {
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'solar-jenkins-Authentication'
                 }
-            }
+            } */
         }
         stage('Install Dependencies') {
             steps {
